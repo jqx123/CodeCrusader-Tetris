@@ -1,4 +1,6 @@
 #include "panel.h"
+#include<cstdlib>
+#include<ctime>
 // 恢复设置（方块会探索下一个位置是否合法，不合法需恢复面板）
 bool panel::recoverPenal() {}
 // 是否着陆(是否碰到下边)
@@ -11,7 +13,37 @@ bool panel::isAttachLeft() {}
 bool panel::isAttachRight() {}
 
 // 随机获取方块形状
-char panel::randomShape() {}
+string panel::randomShape() {
+	string BlockType;
+    srand(static_cast<unsigned int>(time(0)));
+    switch (rand() % 7 + 1) {
+    case 1:
+        BlockType = "LongBlock";
+        break;
+    case 2:
+        BlockType = "SquareBlock";
+        break;
+    case 3:
+        BlockType = "ZBlock";
+        break;
+    case 4:
+        BlockType = "SBlock";
+        break;
+    case 5:
+        BlockType = "LBlock";
+        break;
+    case 6:
+        BlockType = "JBlock";
+        break;
+    case 7:
+        BlockType = "TBlock";
+        break;
+    default:
+        return NULL;
+    }
+    return BlockType;
+
+}
 
 // 用方块数组给面板数组赋值
 bool panel::setPenal() {}
