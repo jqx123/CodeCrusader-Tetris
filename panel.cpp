@@ -45,7 +45,20 @@ char panel::randomShape() {}
 bool panel::setPenal() {}
 
 // 方块动过后要把遗留面板信息擦除
-bool panel::erasePenal() {}
+bool panel::erasePenal() {
+	int blk[4][4] = {0};
+	int x, y;
+	m_graph->getLocate(&x, &y); 
+	memcpy(blk, m_graph->getArray(), 4 * 4 * sizeof(int));
+	for(int i = 0; i < 4; i++)
+	{
+		for(int j = 0; j < 4; j++)
+		{
+			m_penal[i + x][j + y] -= blk[i][j];
+		}
+	}
+	return true;
+}
 
 // 随机创建方块的方法
 void panel::createCube() {}
