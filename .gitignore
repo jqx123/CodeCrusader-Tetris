@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Tetris.sln
+/Tetris.vcxproj
+/Tetris.vcxproj.filters

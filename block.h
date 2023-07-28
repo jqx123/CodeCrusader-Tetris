@@ -180,8 +180,8 @@ protected:
     AbstractBlock *block;
 
 public:
-    BlockFactory(string blocks)
-    {
+    BlockFactory() { block = nullptr; }
+    AbstractBlock* CreateBlock(string blocks){
         if ("LongBlock" == blocks)
         {
             block = new LongBlock;
@@ -210,10 +210,7 @@ public:
         {
             block = new TBlock;
         }
-        else
-        {
-            block = NULL;
-        }
+        return block;
     }
     ~BlockFactory()
     {
@@ -230,23 +227,22 @@ public:
 
 #endif
 
-// void test01()
-// {
-//     BlockFactory *factory = new BlockFactory;
-//     AbstractBlock *block = factory->CreateBlock("TBlock");
-//     block->shape();
-//     delete block;
-//     bloc;
-//     block = factory->CreateBlock("TBlock");
-//     block->shape();
-//     delete block;
-//     bloc;
-//     delete factory;
-//     factory = NULL;
-// }
+ void test01()
+ {
+     BlockFactory *factory = new BlockFactory();
+     AbstractBlock* block = factory->CreateBlock("LBlock");
+     block->shape();
+     delete block;
+     block = factory->CreateBlock("TBlock");
+     block->shape();
+     delete block;
+     delete factory;
+     factory = NULL;
+ }
 
-// int main()
-// {
-//     test01();
-//     block= 0;
-// }这是测试代码
+ int main()
+ {
+     test01();
+
+ }
+ //这是测试代码
