@@ -8,7 +8,29 @@ bool panel::isAttachBottom() {}
 bool panel::isAttachLeft() {}
 
 // 是否碰到右边
-bool panel::isAttachRight() {}
+bool panel::isAttachRight() 
+{
+    int x, y;
+    int cube_x, cube_y;
+    int b[4][4] = { 0 };
+    int flag = flase;
+    m_graph->getLocate(&cube_x, &cube_y);
+    memcpy(b, m_graph->getArray(), (4*4*sizeof(int));
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            if (b[i][j] == 1 && m_penal[i + cube_x][j + cube_y + 1] == 1)
+            {
+                flag = true;
+                break;
+            }
+        }
+        if (flag == true)
+            break;
+    }
+    return flag;
+}
 
 // 随机获取方块形状
 char panel::randomShape() {}
