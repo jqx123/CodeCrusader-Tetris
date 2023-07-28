@@ -11,7 +11,7 @@ enum MARK{
 class panel
 {
 private:
-    int m_penal[24][17];
+    int m_penal[10][30];
     // int m_color[24][17];
     BlockFactory *m_graph;
     BlockFactory *nextGraph;
@@ -19,24 +19,31 @@ private:
 
 public:
     // 恢复设置（方块会探索下一个位置是否合法，不合法需恢复面板）
+    //李金岷
     bool recoverPenal();
     
     // 是否着陆(是否碰到下边)
+    //邓锴
     bool isAttachBottom();
 
     // 是否碰到左边
+    //段先林
     bool isAttachLeft();
 
     // 是否碰到右边
+    //孟玲
     bool isAttachRight();
 
     // 随机生成方块
+    //曾葚
     char randomShape();
 
     // 用方块数组给面板数组赋值
+    //魏斐洋
     bool setPenal();
 
     // 方块动过后要把遗留面板信息擦除
+    //许宏林
     bool erasePenal();
 
     // 随机创建方块的方法
