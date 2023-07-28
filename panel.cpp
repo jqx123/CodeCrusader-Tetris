@@ -3,7 +3,7 @@
 bool panel::recoverPenal() {
 	int b[4][4] = { 0 };
 	int x, y;
-	memcpy(b, m_graph->getArray, CUBE_SIZE);
+	memcpy(b, m_graph->getArray(), CUBE_SIZE);
 	m_graph->getLocate(&x, &y);
 	for (int i = -1; i < 3; ++i)
 		for (int j = -1; j < 3; ++j)

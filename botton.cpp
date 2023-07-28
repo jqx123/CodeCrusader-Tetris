@@ -19,10 +19,36 @@ void botton_voice(int x, int y, int w, int h) {}
 int botton_reset(int x, int y, int w, int h) {}
 
 // 左右下移，掉落 view
-int botton_moveleft(int x, int y, int w, int h) {}
-int botton_moveright(int x, int y, int w, int h) {}
-int botton_movedown(int x, int y, int w, int h) {}
-int botton_movetobottom(int x, int y, int w, int h) {}
+int botton_up(int x, int y, int w, int h) {
+	IMAGE img;
+	loadimage(&img, _T("res/up.png"), w, h);
+	putimage(x, y, &img);
+	return 1;
+}
+int botton_moveleft(int x, int y, int w, int h) {
+	IMAGE img;
+	loadimage(&img, _T("res/left.png"), w, h);
+	putimage(x, y, &img);
+	return 1;
+}
+int botton_moveright(int x, int y, int w, int h) {
+	IMAGE img;
+	loadimage(&img, _T("res/right.png"), w, h);
+	putimage(x, y, &img);
+	return 1;
+}
+int botton_movedown(int x, int y, int w, int h) {
+	IMAGE img;
+	loadimage(&img, _T("res/down.png"), w, h);
+	putimage(x, y, &img);
+	return 1;
+}
+int botton_movetobottom(int x, int y, int w, int h) {
+	IMAGE img;
+	loadimage(&img, _T("res/space.png"), w, h);
+	putimage(x, y, &img);
+	return 1;
+}
 
 // 关于游戏的按钮
 
