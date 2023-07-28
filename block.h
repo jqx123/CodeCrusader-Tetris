@@ -57,7 +57,14 @@ class LongBlock : public AbstractBlock
 public:
     void shape()
     {
-
+        //1,1,0,0
+        //0,1,1,0
+        //0,0,0,0
+        //0,0,0,0
+        bk[0][0] = 1;
+        bk[0][1] = 1;
+        bk[1][1] = 1;
+        bk[1][2] = 1;
     }
 };
 
@@ -76,6 +83,7 @@ class ZBlock : public AbstractBlock
 public:
     void shape()
     {
+
     }
 };
 
