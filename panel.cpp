@@ -1,6 +1,16 @@
 #include "panel.h"
 // 恢复设置（方块会探索下一个位置是否合法，不合法需恢复面板）
-bool panel::recoverPenal() {}
+bool panel::recoverPenal() {
+	int b[4][4] = { 0 };
+	int x, y;
+	memcpy(b, m_graph->getArray, CUBE_SIZE);
+	m_graph->getLocate(&x, &y);
+	for (int i = -1; i < 3; ++i)
+		for (int j = -1; j < 3; ++j)
+			m_penal[x + i][y + j] = b[i + 1][j + 1];
+	return true;
+}
+
 // 是否着陆(是否碰到下边)
 bool panel::isAttachBottom() {}
 
