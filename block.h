@@ -57,6 +57,10 @@ class LongBlock : public AbstractBlock
 public:
     void shape()
     {
+        bk[0][0] = 1;
+        bk[0][1] = 1;
+        bk[0][2] = 1;
+        bk[0][3] = 1;
 
     }
 };
