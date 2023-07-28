@@ -2,8 +2,26 @@
 // 恢复设置（方块会探索下一个位置是否合法，不合法需恢复面板）
 bool panel::recoverPenal() {}
 // 是否着陆(是否碰到下边)
-bool panel::isAttachBottom() {}
-
+bool panel::isAttachBottom() {
+    //获取方块数组
+    int b[4][4] = { 0 };
+    memcpy(b, m_graph->getArray(), (4 * 4 * sizeof(int)));
+    //拿到相对地图坐标(左上)
+    int X, Y;
+    m_graph->getLocate(&X, &Y);
+    bool flag = false;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            //方块与Y轴下一个均为1时返回true
+            if (b[i][j] == 1 && m_penal[X+i][Y+i-1] == 1) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag == true)break;
+    }
+    return flag;
+}
 // 是否碰到左边
 bool panel::isAttachLeft() {}
 
