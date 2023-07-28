@@ -40,21 +40,28 @@ public:
     void *getArray() { return (void *)bk; }
 };
 
+
+        // // 1, 1, 1, 1,
+        // // 0, 0, 0, 0,
+        // // 0, 0, 0, 0,
+        // // 0, 0, 0, 0
+        // bk[0][0] = 1;
+        // bk[0][1] = 1;
+        // bk[0][2] = 1;
+        // bk[0][3] = 1;
+        //这里longblock型的例子
+
+//邓锴
 class LongBlock : public AbstractBlock
 {
 public:
     void shape()
     {
-        // 1, 1, 1, 1,
-        // 0, 0, 0, 0,
-        // 0, 0, 0, 0,
-        // 0, 0, 0, 0
-        bk[0][0] = 1;
-        bk[0][1] = 1;
-        bk[0][2] = 1;
-        bk[0][3] = 1;
+
     }
 };
+
+//段先林
 class SquareBlock : public AbstractBlock
 {
 public:
@@ -62,6 +69,8 @@ public:
     {
     }
 };
+
+//李金岷
 class ZBlock : public AbstractBlock
 {
 public:
@@ -69,6 +78,8 @@ public:
     {
     }
 };
+
+//孟玲
 class SBlock : public AbstractBlock
 {
 public:
@@ -76,6 +87,8 @@ public:
     {
     }
 };
+
+//魏斐洋
 class LBlock : public AbstractBlock
 {
 public:
@@ -83,6 +96,8 @@ public:
     {
     }
 };
+
+//许宏林
 class JBlock : public AbstractBlock
 {
 public:
@@ -90,6 +105,8 @@ public:
     {
     }
 };
+
+//曾葚
 class TBlock : public AbstractBlock
 {
 public:
