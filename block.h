@@ -57,14 +57,14 @@ class LongBlock : public AbstractBlock
 public:
     void shape()
     {
+        // 0, 0, 0, 0,
         // 1, 1, 1, 1,
         // 0, 0, 0, 0,
-        // 0, 0, 0, 0,
         // 0, 0, 0, 0
-        bk[0][0] = 1;
-        bk[0][1] = 1;
-        bk[0][2] = 1;
-        bk[0][3] = 1;
+        bk[1][0] = 1;
+        bk[1][1] = 1;
+        bk[1][2] = 1;
+        bk[1][3] = 1;
 
     }
 };
@@ -75,6 +75,15 @@ class SquareBlock : public AbstractBlock
 public:
     void shape()
     {
+        // 0, 0, 0, 0,
+        // 0, 1, 1, 0,
+        // 0, 1, 1, 0,
+        // 0, 0, 0, 0
+        bk[1][1] = 1;
+        bk[1][2] = 1;
+        bk[2][1] = 1;
+        bk[2][2] = 1;
+        
     }
 };
 
@@ -102,6 +111,14 @@ class SBlock : public AbstractBlock
 public:
     void shape()
     {
+        //0,1,1,0
+        //1,1,0,0
+        //0,0,0,0
+        //0,0,0,0
+        bk[0][1] = 1;
+        bk[0][2] = 1;
+        bk[1][0] = 1;
+        bk[1][1] = 1;
     }
 };
 
@@ -111,6 +128,14 @@ class LBlock : public AbstractBlock
 public:
     void shape()
     {
+        //0,0,1,0
+        //1,1,1,0
+        //0,0,0,0
+        //0,0,0,0
+        bk[0][2] = 1;
+        bk[1][0] = 1;
+        bk[1][1] = 1;
+        bk[1][2] = 1;
     }
 };
 
@@ -120,14 +145,14 @@ class JBlock : public AbstractBlock
 public:
     void shape()
     {
-    	//0,0,1,0
-        //0,0,1,0
-        //0,1,1,0
+        //1,0,0,0
+        //1,1,1,0
         //0,0,0,0
-        bk[0][3] = 1;
-        bk[1][3] = 1;
-        bk[2][2] = 1;
-        bk[2][3] = 1;
+        //0,0,0,0
+        bk[0][0] = 1;
+        bk[1][0] = 1;
+        bk[1][1] = 1;
+        bk[1][2] = 1;
     }
 };
 
@@ -137,6 +162,14 @@ class TBlock : public AbstractBlock
 public:
     void shape()
     {
+        //0,1,0,0
+        //1,1,1,0
+        //0,0,0,0
+        //0,0,0,0
+        bk[0][1] = 1;
+        bk[1][0] = 1;
+        bk[1][1] = 1;
+        bk[1][2] = 1;
     }
 };
 
