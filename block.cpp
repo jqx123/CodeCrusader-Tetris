@@ -1,4 +1,5 @@
 #include "block.h"
+#include "cubePoint.h"
 
 #define DOWN 0
 #define LEFT 1
@@ -9,10 +10,10 @@ void AbstractBlock::showblock(int color)
 {
     int i,j;
     CubePoint p;
-    for(i = x; i < x+3; i++)
-        for(j = y; j < y+3; j++)
+    for(i = x-1; i < x+3; i++)
+        for(j = y-1; j < y+3; j++)
         {
-            if(a[i - x][j - y] == 1)
+            if(bk[i - x][j - y] == 1)
             {
                 p.setLocate(i,j);
                 p.setColor(color);

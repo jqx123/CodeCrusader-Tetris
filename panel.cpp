@@ -32,6 +32,7 @@ bool panel::isAttachBottom() {
     }
     return flag;
 }
+
 // 是否碰到左边
 bool panel::isAttachLeft() {}
 
