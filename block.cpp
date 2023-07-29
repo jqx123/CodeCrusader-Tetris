@@ -59,19 +59,19 @@ int AbstractBlock::rotate()
 
 }
 
-void test01()
-{
-    BlockFactory* Lfactory = new BlockFactory("LBlock");
-    Lfactory->shape();
-    BlockFactory* Tfactory = new BlockFactory("TBlock");
-    Tfactory->shape();
-    delete Lfactory;
-    delete Tfactory;
-}
-
-int main()
-{
-    test01();
-
-}
+//void test01()
+//{
+//    BlockFactory* Lfactory = new BlockFactory("LBlock");
+//    Lfactory->shape();
+//    BlockFactory* Tfactory = new BlockFactory("TBlock");
+//    Tfactory->shape();
+//    delete Lfactory;
+//    delete Tfactory;
+//}
+//
+//int main()
+//{
+//    test01();
+//
+//}
 //这是测试代码
