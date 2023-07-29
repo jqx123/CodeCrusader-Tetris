@@ -1,5 +1,5 @@
 #include "botton.h"
-
+#include<graphics.h>
 // 开始菜单的按钮
 
 // 开始游戏
@@ -27,6 +27,48 @@ int botton_movetobottom(int x, int y, int w, int h) {}
 // 关于游戏的按钮
 
 // 游戏规则按钮
-void botton_aboutrule(int x, int y, int w, int h) {}
+void botton_aboutrule(int x, int y, int w, int h)
+{
+    rectangle(x, y, x + w, y + h);
+    setbkmode(TRANSPARENT);
+    wchar_t s[] = L"游戏规则";
+    settextstyle(h, 0, _T("黑体"));
+    settextcolor(BLACK);
+    outtextxy(x,y,s);
+    while (true)
+    {
+        if (MouseHit()) 
+        {
+            MOUSEMSG msg = GetMouseMsg(); 
+            if (msg.uMsg == WM_LBUTTONDOWN && msg.x >= x && msg.x <= x+w && msg.y >= y && msg.y <= y+h)
+            {
+                settextcolor(WHITE); // 设置文本颜色为白色
+            }
+        }
+    }
+    closegraph();
+
+ 
+}
 // 开发人员按钮
-void botton_aboutdevelopers(int x, int y, int w, int h) {}
+void botton_aboutdevelopers(int x, int y, int w, int h)
+{
+    rectangle(x, y, x + w, y + h);
+    setbkmode(TRANSPARENT);
+    wchar_t s[] = L"开发人员";
+    settextstyle(h, 0, _T("黑体"));
+    settextcolor(BLACK);
+    outtextxy(x, y, s);
+    while (true)
+    {
+        if (MouseHit())
+        {
+            MOUSEMSG msg = GetMouseMsg();
+            if (msg.uMsg == WM_LBUTTONDOWN && msg.x >= x && msg.x <= x + w && msg.y >= y && msg.y <= y + h)
+            {
+                settextcolor(WHITE); // 设置文本颜色为白色
+            }
+        }
+    }
+    closegraph();
+}
