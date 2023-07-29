@@ -1,6 +1,6 @@
 #include "game.h"
 #include <string>
-
+#include<graphics.h>
 using namespace std;
 
 // 游戏的入口函数，点击运行程序后被调用的程序
@@ -21,6 +21,24 @@ void game::setting()
 // 退出游戏逻辑
 void game::exitgame()
 {
+    HWND hwnd = NULL; // 父窗口句柄，可以为NULL
+    LPCWSTR lpText = L"你确定要退出游戏吗？"; // 消息框文本
+    LPCWSTR lpCaption = L"确认退出"; // 消息框标题
+    UINT uType = MB_YESNO | MB_ICONQUESTION; // 消息框类型，包含“是”和“否”按钮，以及问号图标
+
+    int nResult = MessageBox(hwnd, lpText, lpCaption, uType); // 显示消息框，并获取用户点击的按钮
+
+    if (nResult == IDYES) // 用户点击了“是”按钮
+    {
+        exit(0);
+    }
+    else if (nResult == IDNO) // 用户点击了“否”按钮
+    {
+        play();
+    }
+
+   
+
 }
 
 // 初始化游戏参数，包括绘出panel，准备随机方块，画出最高分，画出现有分0

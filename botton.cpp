@@ -130,8 +130,7 @@ void botton_aboutrule(int x, int y, int w, int h)
     settextstyle(h, 0, _T("黑体"));
     settextcolor(BLACK);
     outtextxy(x,y,s);
-    while (true)
-    {
+    
         if (MouseHit()) 
         {
             MOUSEMSG msg = GetMouseMsg(); 
@@ -140,7 +139,7 @@ void botton_aboutrule(int x, int y, int w, int h)
                 settextcolor(WHITE); // 设置文本颜色为白色
             }
         }
-    }
+    
     closegraph();
 
  
@@ -154,8 +153,7 @@ void botton_aboutdevelopers(int x, int y, int w, int h)
     settextstyle(h, 0, _T("黑体"));
     settextcolor(BLACK);
     outtextxy(x, y, s);
-    while (true)
-    {
+  
         if (MouseHit())
         {
             MOUSEMSG msg = GetMouseMsg();
@@ -164,6 +162,6 @@ void botton_aboutdevelopers(int x, int y, int w, int h)
                 settextcolor(WHITE); // 设置文本颜色为白色
             }
         }
-    }
+    
     closegraph();
 }
