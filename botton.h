@@ -20,6 +20,7 @@ void botton_voice(int x,int y,int w,int h);
 int botton_reset(int x,int y,int w,int h);
 
 //左右下移，掉落 view
+int botton_up(int x, int y, int w, int h)
 int botton_moveleft(int x,int y,int w,int h);
 int botton_moveright(int x,int y,int w,int h);
 int botton_movedown(int x,int y,int w,int h);
