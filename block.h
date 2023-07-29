@@ -214,7 +214,7 @@ public:
         }
         else
         {
-            block = nullptr;
+            block = NULL;
         }
     }
     ~BlockFactory()
