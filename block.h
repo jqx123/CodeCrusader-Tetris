@@ -25,7 +25,7 @@ public:
     virtual int rotate();
 
     // 这个函数是给方块赋形状
-    virtual void shape(){}
+    virtual void shape() {}
     void setLocate(int a, int b)
     {
         x = a;
@@ -38,7 +38,7 @@ public:
     }
     void showblock(int color);
     // 获取数组首地址
-    void* getArray() { return (void*)bk; }
+    void *getArray() { return (void *)bk; }
 };
 
 
