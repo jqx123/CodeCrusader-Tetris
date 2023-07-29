@@ -38,7 +38,7 @@ public:
     }
     void showblock(int color);
     // 获取数组首地址
-    int(*getArray())[4][4]{ return &bk; }
+    void* getArray() { return (void*)bk; }
 };
 
 
@@ -229,7 +229,7 @@ public:
     void shape() { block->shape(); }
     void setLocate(int a, int b) { block->setLocate(a, b); }
     void getLocate(int *a, int *b) { block->getLocate(a, b); }
-    int (*getArray())[4][4] { return block->getArray(); }
+    void *getArray(){ return block->getArray(); }
     void showblock(int color) { block->showblock(color); }
 };
 
