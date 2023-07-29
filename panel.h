@@ -12,7 +12,7 @@ enum MARK{
 class panel
 {
 private:
-    int m_penal[10][30];
+    int m_penal[30][10];
     // int m_color[24][17];
     BlockFactory *m_graph;
     BlockFactory *nextGraph;
