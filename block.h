@@ -25,7 +25,7 @@ public:
     virtual int rotate();
 
     // 这个函数是给方块赋形状
-    virtual void shape() = 0;
+    virtual void shape(){}
     void setLocate(int a, int b)
     {
         x = a;
