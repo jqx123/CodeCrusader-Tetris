@@ -1,5 +1,5 @@
 #include "botton.h"
-
+#include <graphics.h>
 // 开始菜单的按钮
 
 // 开始游戏
