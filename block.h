@@ -1,6 +1,7 @@
 #ifndef BLOCK_H
 #define BLOCK_H
 #include <iostream>
+#include"cubePoint.h"
 using namespace std;
 // 这个block类用工厂模式
 class AbstractBlock
@@ -24,7 +25,7 @@ public:
     virtual int rotate();
 
     // 这个函数是给方块赋形状
-    virtual void shape() {}
+    virtual void shape() = 0;
     void setLocate(int a, int b)
     {
         x = a;
@@ -37,7 +38,7 @@ public:
     }
     void showblock(int color);
     // 获取数组首地址
-    void *getArray() { return (void *)bk; }
+    int(*getArray())[4][4]{ return &bk; }
 };
 
 
@@ -137,6 +138,8 @@ public:
         bk[1][1] = 1;
         bk[1][2] = 1;
     }
+    // rotate已在父类实现，直接调用父类的即可
+
 };
 
 //许宏林
@@ -180,8 +183,7 @@ protected:
     AbstractBlock *block;
 
 public:
-    BlockFactory() { block = nullptr; }
-    AbstractBlock* CreateBlock(string blocks){
+	BlockFactory(string blocks) {
         if ("LongBlock" == blocks)
         {
             block = new LongBlock;
@@ -210,39 +212,42 @@ public:
         {
             block = new TBlock;
         }
-        return block;
+        else
+        {
+            block = nullptr;
+        }
     }
     ~BlockFactory()
     {
-        delete block;
+        if(block != nullptr){
+            delete block;
+            block = nullptr;
+        }
     }
     int move(int dir) { return block->move(dir); }
     int rotate() { return block->rotate(); }
     void shape() { block->shape(); }
     void setLocate(int a, int b) { block->setLocate(a, b); }
     void getLocate(int *a, int *b) { block->getLocate(a, b); }
-    void *getArray() { block->getArray(); }
+    int (*getArray())[4][4] { return block->getArray(); }
     void showblock(int color) { block->showblock(color); }
 };
 
 #endif
 
- void test01()
- {
-     BlockFactory *factory = new BlockFactory();
-     AbstractBlock* block = factory->CreateBlock("LBlock");
-     block->shape();
-     delete block;
-     block = factory->CreateBlock("TBlock");
-     block->shape();
-     delete block;
-     delete factory;
-     factory = NULL;
- }
+ //void test01()
+ //{
+ //    BlockFactory *Lfactory = new BlockFactory("LBlock");
+ //    Lfactory->shape();
+ //    BlockFactory* Tfactory = new BlockFactory("TBlock");
+ //    Tfactory->shape();
+ //    delete Lfactory;
+ //    delete Tfactory;
+ //}
 
- int main()
- {
-     test01();
+ //int main()
+ //{
+ //    test01();
 
- }
- //这是测试代码
+ //}
+ ////这是测试代码

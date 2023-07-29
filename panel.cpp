@@ -44,7 +44,23 @@ bool panel::isAttachRight() {}
 char panel::randomShape() {}
 
 // 用方块数组给面板数组赋值
-bool panel::setPenal() {}
+bool panel::setPenal() {
+    //获取方块数组
+	int b[4][4] = { 0 };
+	memcpy(b, m_graph->getArray(), (4 * 4 * sizeof(int)));
+	//拿到相对地图坐标(左上)
+	int X, Y;
+	m_graph->getLocate(&X, &Y);
+	//将方块数组赋值给面板数组
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 4;j++) {
+			if (b[i][j] == 1) {
+				m_penal[X + i][Y + j] = 1;
+			}
+		}
+	}
+	return true; // 对于这个true 和 false 暂时还不懂什么时候是true 什么时候是false
+}
 
 // 方块动过后要把遗留面板信息擦除
 bool panel::erasePenal() {}

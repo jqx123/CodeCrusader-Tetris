@@ -12,7 +12,7 @@ void AbstractBlock::showblock(int color)
     for(i = x; i < x+3; i++)
         for(j = y; j < y+3; j++)
         {
-            if(a[i - x][j - y] == 1)
+            if(bk[i - x][j - y] == 1)
             {
                 p.setLocate(i,j);
                 p.setColor(color);
@@ -59,9 +59,19 @@ int AbstractBlock::rotate()
 
 }
 
-// int main(){
-//     BlockFactory *block = new BlockFactory("LongBlock");
-//     block->shape();
-//     int *num = (int*)block->getArray();
-//     printf("%d",num[3]);
-// }
+void test01()
+{
+    BlockFactory* Lfactory = new BlockFactory("LBlock");
+    Lfactory->shape();
+    BlockFactory* Tfactory = new BlockFactory("TBlock");
+    Tfactory->shape();
+    delete Lfactory;
+    delete Tfactory;
+}
+
+int main()
+{
+    test01();
+
+}
+//这是测试代码
