@@ -49,7 +49,7 @@ int AbstractBlock::rotate()
      for(i = 0; i < 4; i++)
         for(j = 0; j < 4; j++)
         {
-            temp[2-j][i] = bk[i][j];
+            temp[j][3-i] = bk[i][j];
         }
     for(i = 0; i < 4; i++)
         for(j = 0; j < 4; j++)
