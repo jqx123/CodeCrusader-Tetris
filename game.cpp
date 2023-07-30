@@ -4,6 +4,7 @@
 #include<Windows.h>  //Sleep
 #include<graphics.h>
 #include <string>
+#include"botton.h"
 
 #define VOLUME_NUM 9		//不知道分多少个等级，9是临时值
 #define LEVEL_NUM 9			//不知道分多少个等级，9是临时值
@@ -20,7 +21,48 @@ using namespace std;
 // 游戏的入口函数，点击运行程序后被调用的程序
 void game::play()
 {
+	IMAGE background;
+	loadimage(&background, _T("res\\menu_background.png"), 500, 750);
+	putimage(0, 0, &background);
 
+	//绘制按钮
+	botton_start(203, 130, 95, 40);
+	botton_setting(203, 180, 95, 45);
+	botton_about(203, 230, 95, 45);
+	botton_exit(203, 280, 95, 45);
+
+	ExMessage m;
+	while (1)
+	{
+		m = getmessage(EX_MOUSE);
+
+		switch (m.message)
+		{
+		case WM_LBUTTONDOWN:
+			if (m.x >= 203 && m.x <= 203 + 95 && m.y >= 130 && m.y <= 130 + 40)
+			{
+				startgame();
+			}
+			else if (m.x >= 203 && m.x <= 203 + 95 && m.y >= 180 && m.y <= 180 + 40)
+			{
+				setting();
+			}
+			else if (m.x >= 203 && m.x <= 203 + 95 && m.y >= 230 && m.y <= 230 + 40)
+			{
+				//跳转至关于人员界面
+				...
+			}
+			else if (m.x >= 203 && m.x <= 203 + 95 && m.y >= 280 && m.y <= 280 + 40)
+			{
+				exitgame();
+			}
+			else
+			{
+				continue;
+			}
+			break;
+		}
+	}
 }
 
 // 游戏的运行规则，点击开始游戏后的逻辑
