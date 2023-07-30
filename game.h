@@ -29,4 +29,6 @@ public:
     void gameover();
     // 游戏结束或暂停的返回界面
     void pauseorover();
+    //更新游戏难度
+    void updateDiff(int difficulty);
 };
