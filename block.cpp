@@ -1,9 +1,5 @@
 #include "block.h"
 #include "cubePoint.h"
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/main
 #define DOWN 0
 #define LEFT 1
 #define RIGHT 2
