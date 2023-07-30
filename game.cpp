@@ -188,4 +188,19 @@ void game::gameover()
 // 游戏结束或暂停的返回界面
 void game::pauseorover()
 {
+	
+}
+
+//更新游戏消除行界面
+	void game::updateeliminate(int line)//消除的行数
+{
+	rectangle(302, 150, 345, 200);
+	setbkmode(TRANSPARENT);
+	wchar_t s[] = L"消除行";
+	settextstyle(16, 0, _T("黑体"));
+	outtextxy(302, 150, s);
+	int score= line;
+	settextstyle(16, 0, _T("黑体"));
+	outtextxy(340,210,score)
+
 }
