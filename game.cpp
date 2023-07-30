@@ -4,9 +4,6 @@
 #include<Windows.h>  //Sleep
 #include<graphics.h>
 #include <string>
-<<<<<<< HEAD
-#include<graphics.h>
-=======
 
 #define VOLUME_NUM 9		//不知道分多少个等级，9是临时值
 #define LEVEL_NUM 9			//不知道分多少个等级，9是临时值
@@ -18,7 +15,6 @@
 #include"common.h"
 #include<graphics.h>
 
->>>>>>> up/main
 using namespace std;
 
 // 游戏的入口函数，点击运行程序后被调用的程序
@@ -74,24 +70,6 @@ void game::setting(int & volume, int & level)
 // 退出游戏逻辑
 void game::exitgame()
 {
-    HWND hwnd = NULL; 
-    LPCWSTR lpText = L"你确定要退出游戏吗？"; // 消息框文本
-    LPCWSTR lpCaption = L"确认退出"; // 消息框标题
-    UINT uType = MB_YESNO | MB_ICONQUESTION; // 消息框类型，包含“是”和“否”按钮
-
-    int nResult = MessageBox(hwnd, lpText, lpCaption, uType); 
-
-    if (nResult == IDYES) 
-    {
-        exit(0);
-    }
-    else if (nResult == IDNO) 
-    {
-        play();
-    }
-
-   
-
 }
 
 // 初始化游戏参数，包括绘出panel，准备随机方块，画出最高分，画出现有分0,准备随机种子
