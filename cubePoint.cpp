@@ -3,18 +3,17 @@
 #include<graphics.h>
 
 
-
 void CubePoint::printPoint()
 {
 	IMAGE img0;
 	loadimage(&img0, "D:\\CodeCrusader\\CodeCrusader-Tetris\\res\\cube0.png",16,16,true);
 	IMAGE img1;
-	loadimage(&img1, "D:\\CodeCrusader\\CodeCrusader-Tetris\\res\\cube1.png", 16, 16, true);
+	loadimage(&img1, "D:\\CodeCrusader\\CodeCrusader-Tetris\\res\\cube1.png",16,16, true);
 
 	switch(color)
 	{
 		case 0:putimage(this->x, this->y,&img0); break;
-		case 1: putimage(this->x,this->y,&img1); break;
+		case 1:putimage(this->x,this->y,&img1); break;
 		/*
 		 case RED       :printf("\033[41;31m  \033[0m");break;
 		 case GREEN     :printf("\033[42;32m  \033[0m");break;
@@ -24,7 +23,6 @@ void CubePoint::printPoint()
 		 case DEEP_GREEN:printf("\033[46;36m  \033[0m");break;
 		 case WHITE     :printf("\033[47;37m  \033[0m");break;
 		 */
-		
 		 default:
 		 break;
 	}

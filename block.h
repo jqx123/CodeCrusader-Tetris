@@ -16,8 +16,8 @@ public:
         int i, j;
         x = 0;
         y = 0;
-        for (j = 0; j < 3; j++)
-            for (i = 0; i < 3; i++)
+        for (j = 0; j < 4; j++)
+            for (i = 0; i < 4; i++)
                 bk[i][j] = 0;
     }
     int move(int dir);
