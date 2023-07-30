@@ -6,6 +6,7 @@ using namespace std;
 class AbstractBlock
 {
 protected:
+    //左上角坐标
     int x;
     int y;
     int bk[4][4];
@@ -35,21 +36,10 @@ public:
         *a = x;
         *b = y;
     }
-    void showblock(int color);
+    void showblock();
     // 获取数组首地址
     void *getArray() { return (void *)bk; }
 };
-
-
-        // // 1, 1, 1, 1,
-        // // 0, 0, 0, 0,
-        // // 0, 0, 0, 0,
-        // // 0, 0, 0, 0
-        // bk[0][0] = 1;
-        // bk[0][1] = 1;
-        // bk[0][2] = 1;
-        // bk[0][3] = 1;
-        //这里longblock型的例子
 
 //邓锴
 class LongBlock : public AbstractBlock
@@ -57,8 +47,6 @@ class LongBlock : public AbstractBlock
 public:
     void shape()
     {
-
-
         // 0, 0, 0, 0,
         // 1, 1, 1, 1,
         // 0, 0, 0, 0,
@@ -67,8 +55,6 @@ public:
         bk[1][1] = 1;
         bk[1][2] = 1;
         bk[1][3] = 1;
-
-
     }
 };
 
@@ -86,7 +72,6 @@ public:
         bk[1][2] = 1;
         bk[2][1] = 1;
         bk[2][2] = 1;
-        
     }
 };
 
@@ -114,7 +99,6 @@ class SBlock : public AbstractBlock
 public:
     void shape()
     {
-
         //0,1,1,0
         //1,1,0,0
         //0,0,0,0
@@ -123,7 +107,6 @@ public:
         bk[0][2] = 1;
         bk[1][0] = 1;
         bk[1][1] = 1;
-
     }
 };
 
@@ -150,8 +133,6 @@ class JBlock : public AbstractBlock
 public:
     void shape()
     {
-
-
         //1,0,0,0
         //1,1,1,0
         //0,0,0,0
@@ -186,7 +167,6 @@ class BlockFactory
 {
 protected:
     AbstractBlock *block;
-
 public:
     BlockFactory(string blocks)
     {
@@ -233,7 +213,7 @@ public:
     void setLocate(int a, int b) { block->setLocate(a, b); }
     void getLocate(int *a, int *b) { block->getLocate(a, b); }
     void *getArray() { block->getArray(); }
-    void showblock(int color) { block->showblock(color); }
+    void showblock() { block->showblock(); }
 };
 
 #endif

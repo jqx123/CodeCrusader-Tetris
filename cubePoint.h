@@ -1,18 +1,14 @@
 #ifndef CUBEPOINT_H_
 #define CUBEPOINT_H_
 
-#include<iostream>
-using namespace std;
 enum color{
 	CLEAR = 0,
-	BLACK = 30,
+	BLACK = 1,
 };
-
 /*
  * 显示面板我们看作是很多方形的小点组成
  * 每个点显然有个坐标值
  * 每个点有一个颜色
- * 这种思维来设计更为合理
  */
 class CubePoint{
 public:

@@ -5,17 +5,17 @@
 #define RIGHT 2
 
 // 画出block
-void AbstractBlock::showblock(int color)
+void AbstractBlock::showblock()
 {
     int i,j;
     CubePoint p;
-    for(i = x-1; i < x+3; i++)
-        for(j = y-1; j < y+3; j++)
+    for(i = x; i < x+4; i++)
+        for(j = y; j < y+4; j++)
         {
             if(bk[i - x][j - y] == 1)
             {
                 p.setLocate(i,j);
-                p.setColor(color);
+                p.setColor(BLACK);
                 p.printPoint();
             }
         }

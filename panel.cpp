@@ -1,9 +1,8 @@
 #include "panel.h"
+#include "cubePoint.h"
 #include <cstdlib>
 #include <ctime>
 #include <string>
-
-#include "cubePoint.h"
 
 #define PENAL_SIZE (10 * 30 * sizeof(int))
 #define CUBE_SIZE (4 * 4 * sizeof(int))
