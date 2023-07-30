@@ -13,20 +13,12 @@
 #define RIGHT 2
 
 // 恢复设置（方块会探索下一个位置是否合法，不合法需恢复面板）
-<<<<<<< HEAD
-bool panel::recoverPenal() {
-    int b[4][4] = { 0 };
-    int x, y;
-    memcpy(b, m_graph->getArray(), CUBE_SIZE);
-    m_graph->getLocate(&x, &y);
-=======
 bool panel::recoverPenal()
 {
     int b[4][4] = {0};
     int x, y;
     memcpy(b, m_block->getArray(), 4 * 4 * sizeof(int));
     m_block->getLocate(&x, &y);
->>>>>>> up/main
     for (int i = -1; i < 3; ++i)
         for (int j = -1; j < 3; ++j)
             m_penal[x + i][y + j] = b[i + 1][j + 1];
@@ -40,12 +32,6 @@ bool panel::isAttachBottom()
     // 获取方块数组
     int b[4][4] = {0};
     bool flag = false;
-<<<<<<< HEAD
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            //方块与Y轴下一个均为1时返回true
-            if (b[i][j] == 1 && m_penal[X + i][Y + i - 1] == 1) {
-=======
     memcpy(b, m_block->getArray(), (4 * 4 * sizeof(int)));
     // 拿到相对地图坐标(左上)
     m_block->getLocate(&cube_x, &cube_y);
@@ -56,7 +42,6 @@ bool panel::isAttachBottom()
             // 方块与Y轴下一个均为1时返回true
             if (b[i][j] == 1 && m_penal[cube_x + i][cube_y + j + 1] == 1)
             {
->>>>>>> up/main
                 flag = true;
                 break;
             }
@@ -94,22 +79,12 @@ bool panel::isAttachLeft()
 // 是否碰到右边
 bool panel::isAttachRight()
 {
-<<<<<<< HEAD
-    int i,j;
-    int cube_x, cube_y;
-    int b[4][4] = { 0 };
-    int flag = false;
-    m_graph->getLocate(&cube_x, &cube_y);
-    memcpy(b, m_graph->getArray(), (4 * 4 * sizeof(int)));
-    for (i = 0; i < 4; i++)
-=======
     int cube_x, cube_y;
     int b[4][4] = {0}; // 获取方块数组
     int flag = false;
     m_block->getLocate(&cube_x, &cube_y);
     memcpy(b, m_block->getArray(), CUBE_SIZE);
     for (int i = 0; i < 4; i++)
->>>>>>> up/main
     {
         for (int j = 0; j < 4; j++)
         {
@@ -126,18 +101,11 @@ bool panel::isAttachRight()
 }
 
 // 随机获取方块形状
-<<<<<<< HEAD
-string panel::randomShape() {
-    string BlockType;
-    srand(static_cast<unsigned int>(time(0)));
-    switch (rand() % 7 + 1) {
-=======
 string panel::randomShape()
 {
     string BlockType;
     switch (rand() % 7 + 1)
     {
->>>>>>> up/main
     case 1:
         BlockType = "LongBlock";
         break;
@@ -188,20 +156,12 @@ bool panel::setPenal()
 }
 
 // 方块动过后要把遗留面板信息擦除
-<<<<<<< HEAD
-bool panel::erasePenal() {
-    int blk[4][4] = { 0 };
-    int x, y;
-    m_graph->getLocate(&x, &y);
-    memcpy(blk, m_graph->getArray(), 4 * 4 * sizeof(int));
-=======
 bool panel::erasePenal()
 {
     int blk[4][4] = {0};
     int x, y;
     m_block->getLocate(&x, &y);
     memcpy(blk, m_block->getArray(), 4 * 4 * sizeof(int));
->>>>>>> up/main
     for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)
