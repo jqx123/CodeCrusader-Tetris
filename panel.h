@@ -38,7 +38,7 @@ public:
 
     // 随机生成方块
     //曾葚
-    char randomShape();
+    string randomShape();
 
     // 用方块数组给面板数组赋值
     //魏斐洋

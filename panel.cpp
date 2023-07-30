@@ -1,11 +1,12 @@
 #include "panel.h"
 #include<cstdlib>
 #include<ctime>
+
 // 恢复设置（方块会探索下一个位置是否合法，不合法需恢复面板）
 bool panel::recoverPenal() {
 	int b[4][4] = { 0 };
 	int x, y;
-	memcpy(b, m_graph->getArray(), CUBE_SIZE);
+	memcpy(b, m_graph->getArray(), 4 * 4 * sizeof(int));
 	m_graph->getLocate(&x, &y);
 	for (int i = -1; i < 3; ++i)
 		for (int j = -1; j < 3; ++j)
@@ -93,11 +94,12 @@ string panel::randomShape() {
         return NULL;
     }
     return BlockType;
-
 }
 
 // 用方块数组给面板数组赋值
-bool panel::setPenal() {}
+bool panel::setPenal() {
+
+}
 
 // 方块动过后要把遗留面板信息擦除
 bool panel::erasePenal() {

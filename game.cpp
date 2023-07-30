@@ -1,6 +1,9 @@
 #include "game.h"
 #include <string>
 
+#include "block.h"
+#include "panel.h"
+
 using namespace std;
 
 // 游戏的入口函数，点击运行程序后被调用的程序
@@ -27,6 +30,11 @@ void game::exitgame()
 // 初始化游戏参数，包括绘出panel，准备随机方块，画出最高分，画出现有分0,准备随机种子
 void game::init()
 {
+	nextGraph = new BlockFactory();
+	nextGraph->draw();
+	nextGraph->setLocate(1,7);
+
+	createCube();
 }
 // 随机函数，用于生成随机方块,init专用
 string random()
