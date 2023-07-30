@@ -1,7 +1,11 @@
 #include "panel.h"
 #include<cstdlib>
 #include<ctime>
+<<<<<<< HEAD
 
+=======
+#include<string>
+>>>>>>> upstream/main
 // 恢复设置（方块会探索下一个位置是否合法，不合法需恢复面板）
 bool panel::recoverPenal() {
 	int b[4][4] = { 0 };
@@ -67,7 +71,6 @@ bool panel::isAttachRight()
 // 随机获取方块形状
 string panel::randomShape() {
 	string BlockType;
-    srand(static_cast<unsigned int>(time(0)));
     switch (rand() % 7 + 1) {
     case 1:
         BlockType = "LongBlock";
