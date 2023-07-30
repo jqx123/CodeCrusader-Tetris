@@ -14,14 +14,13 @@ class panel
 private:
     int m_penal[30][10];
     // int m_color[24][17];
-    BlockFactory *m_graph;
+    BlockFactory *m_block;
     BlockFactory *nextGraph;
     MARK mark;
 
 public:
     // 恢复设置（方块会探索下一个位置是否合法，不合法需恢复面板）
     //李金岷
-
     bool recoverPenal();
     
     // 是否着陆(是否碰到下边)
