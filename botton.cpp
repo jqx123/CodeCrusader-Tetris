@@ -251,7 +251,6 @@ int botton_movetobottom(int x, int y, int w, int h) {
 // 游戏规则按钮
 void botton_aboutrule(int x, int y, int w, int h)
 {
-<<<<<<< HEAD
     rectangle(x, y, x + w, y + h);
     setbkmode(TRANSPARENT);
     wchar_t s[] = L"游戏规则";
@@ -274,7 +273,6 @@ void botton_aboutrule(int x, int y, int w, int h)
 // 开发人员按钮
 void botton_aboutdevelopers(int x, int y, int w, int h)
 {
-<<<<<<< HEAD
     rectangle(x, y, x + w, y + h);
     setbkmode(TRANSPARENT);
     wchar_t s[] = L"开发人员";
