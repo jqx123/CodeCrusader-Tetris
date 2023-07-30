@@ -4,6 +4,7 @@
 #include<Windows.h>  //Sleep
 #include<graphics.h>
 #include <string>
+#include<easyx.h>
 
 #define VOLUME_NUM 9		//不知道分多少个等级，9是临时值
 #define LEVEL_NUM 9			//不知道分多少个等级，9是临时值
@@ -173,4 +174,14 @@ void game::gameover()
 // 游戏结束或暂停的返回界面
 void game::pauseorover()
 {
+}
+//更新游戏难度
+void game::updateDiff(int difficulty)
+{
+	wchar_t s[10];
+	swprintf_s(s, L"%d", difficulty);
+	settextstyle(10, 0, L"微软雅黑");
+	//在坐标显示更新之后的难度
+	outtextxy(x, y, s);
+
 }

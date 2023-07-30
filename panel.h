@@ -64,5 +64,7 @@ public:
 
     // 擦除完上面的图形整块坠落
     void down(int level);
+
+
 };
 #endif
