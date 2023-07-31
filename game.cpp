@@ -70,6 +70,21 @@ void game::setting(int & volume, int & level)
 // 退出游戏逻辑
 void game::exitgame()
 {
+	HWND hwnd = NULL; 
+    LPCWSTR lpText = L"你确定要退出游戏吗？"; // 消息框文本
+    LPCWSTR lpCaption = L"确认退出"; // 消息框标题
+    UINT uType = MB_YESNO | MB_ICONQUESTION; // 消息框类型，包含“是”和“否”按钮
+
+    int nResult = MessageBox(hwnd, lpText, lpCaption, uType); 
+
+    if (nResult == IDYES) 
+    {
+        exit(0);
+    }
+    else if (nResult == IDNO) 
+    {
+        play();
+    }
 }
 
 // 初始化游戏参数，包括绘出panel，准备随机方块，画出最高分，画出现有分0,准备随机种子
@@ -173,4 +188,19 @@ void game::gameover()
 // 游戏结束或暂停的返回界面
 void game::pauseorover()
 {
+	
+}
+
+//更新游戏消除行界面
+	void game::updateeliminate(int line)//消除的行数
+{
+	rectangle(302, 150, 345, 200);
+	setbkmode(TRANSPARENT);
+	wchar_t s[] = L"消除行";
+	settextstyle(16, 0, _T("黑体"));
+	outtextxy(302, 150, s);
+	int score= line;
+	settextstyle(16, 0, _T("黑体"));
+	outtextxy(340,210,score)
+
 }

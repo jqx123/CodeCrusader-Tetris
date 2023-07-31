@@ -29,4 +29,6 @@ public:
     void gameover();
     // 游戏结束或暂停的返回界面
     void pauseorover();
+    //更新游戏消除行界面
+    void updateeliminate(int line)//消除的行数
 };
