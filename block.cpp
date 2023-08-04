@@ -9,13 +9,37 @@ void AbstractBlock::showblock()
 {
     int i,j;
     CubePoint p;
-    for(i = x; i < x+4; i++)
-        for(j = y; j < y+4; j++)
+    //int size = 16;//图片大小
+    for(i = 0; i < 4; i++)
+        for(j = 0; j < 4; j++)
         {
-            if(bk[i - x][j - y] == 1)
+            if(bk[i][j] == 1)
             {
-                p.setLocate(i,j);
+                p.setLocate(xbase+ (y + j) * cube_size,ybase+ (x + i) * cube_size);
                 p.setColor(BLACK);
+                p.printPoint();
+            }
+        }
+}
+
+// 画出block
+void AbstractBlock::shownextblock()
+{
+    int i, j;
+    CubePoint p;
+    //int size = 16;//图片大小
+    for (i = 0; i < 4; i++)
+        for (j = 0; j < 4; j++)
+        {
+            if (bk[i][j] == 1)
+            {
+                p.setLocate(301 + (y + j) * cube_size, 290 + (x + i) * cube_size);
+                p.setColor(BLACK);
+                p.printPoint();
+            }
+            else {
+                p.setLocate(301 + (y + j) * cube_size, 290 + (x + i) * cube_size);
+                p.setColor(CLEAR);
                 p.printPoint();
             }
         }
@@ -27,13 +51,13 @@ int AbstractBlock::move(int dir)
     switch (dir)
     {
     case DOWN:
-        y++;
+        x++;
         break;
     case LEFT:
-        x--;
+        y--;
         break;
     case RIGHT:
-        x++;
+        y++;
         break;
     default:
         break;
@@ -42,21 +66,21 @@ int AbstractBlock::move(int dir)
 }
 
 // 旋转block
-int AbstractBlock::rotate()
+void AbstractBlock::rotate()
 {
     int i,j;
-    int temp[4][4];
-     for(i = 0; i < 4; i++)
-        for(j = 0; j < 4; j++)
+    int temp[4][4] = { 0 };
+    
+     for(i = 0; i < 3; i++)
+        for(j = 0; j < 3; j++)
         {
-            temp[2-j][i] = bk[i][j];
+            temp[j][2 - i] = bk[i][j];
         }
-    for(i = 0; i < 4; i++)
-        for(j = 0; j < 4; j++)
+    for(i = 0; i < 3; i++)
+        for(j = 0; j < 3; j++)
         {
             bk[i][j] = temp[i][j];
         }
-
 }
 
 // int main(){

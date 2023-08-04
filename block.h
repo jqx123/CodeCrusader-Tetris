@@ -1,29 +1,28 @@
 #ifndef BLOCK_H
 #define BLOCK_H
 #include <iostream>
-using namespace std;
 // 这个block类用工厂模式
 class AbstractBlock
 {
-protected:
+public:
     //左上角坐标
     int x;
     int y;
     int bk[4][4];
     // 这里储存了方块状态
-public:
     AbstractBlock()
     {
         int i, j;
         x = 0;
         y = 0;
-        for (j = 0; j < 4; j++)
-            for (i = 0; i < 4; i++)
+        for (j = 0; j < 4; j++) {
+            for (i = 0; i < 4; i++) {
                 bk[i][j] = 0;
+            } 
+        }    
     }
     int move(int dir);
-    virtual int rotate();
-
+    virtual void rotate();
     // 这个函数是给方块赋形状
     virtual void shape() {}
     void setLocate(int a, int b)
@@ -36,9 +35,15 @@ public:
         *a = x;
         *b = y;
     }
+    //画出方块
     void showblock();
+
+    //画出下一个方块
+    void shownextblock();
+
     // 获取数组首地址
     void *getArray() { return (void *)bk; }
+
 };
 
 //邓锴
@@ -55,6 +60,32 @@ public:
         bk[1][1] = 1;
         bk[1][2] = 1;
         bk[1][3] = 1;
+    }
+
+    void rotate() {
+        if (bk[1][0] == 1) {
+
+            bk[1][0] = 0;
+            bk[1][1] = 0;
+            bk[1][2] = 0;
+            bk[1][3] = 0;
+
+            bk[0][1] = 1;
+            bk[1][1] = 1;
+            bk[2][1] = 1;
+            bk[3][1] = 1;
+        }
+        else {
+            bk[0][1] = 0;
+            bk[1][1] = 0;
+            bk[2][1] = 0;
+            bk[3][1] = 0;
+
+            bk[1][0] = 1;
+            bk[1][1] = 1;
+            bk[1][2] = 1;
+            bk[1][3] = 1;
+        }
     }
 };
 
@@ -165,10 +196,16 @@ public:
 // 方块工厂
 class BlockFactory
 {
-protected:
-    AbstractBlock *block;
 public:
-    BlockFactory(string blocks)
+    AbstractBlock *block;
+    BlockFactory() {
+        block=new AbstractBlock;
+    }
+    BlockFactory(BlockFactory &copyblock) {
+        block = new AbstractBlock;
+        memcpy(block->bk, copyblock.block->bk, 16 * sizeof(int));
+    }
+    BlockFactory(std::string blocks)
     {
         if ("LongBlock" == blocks)
         {
@@ -190,7 +227,7 @@ public:
         {
             block = new LBlock;
         }
-        else if ("JBlock " == blocks)
+        else if ("JBlock" == blocks)
         {
             block = new JBlock;
         }
@@ -208,15 +245,18 @@ public:
         delete block;
     }
     int move(int dir) { return block->move(dir); }
-    int rotate() { return block->rotate(); }
+    void rotate() { block->rotate(); }
     void shape() { block->shape(); }
     void setLocate(int a, int b) { block->setLocate(a, b); }
     void getLocate(int *a, int *b) { block->getLocate(a, b); }
-    void *getArray() { block->getArray(); }
+    //void getArray() {  block->getArray(); }
     void showblock() { block->showblock(); }
+    void shownextblock() { block->shownextblock();}
 };
 
 #endif
+
+
 
 // void test01()
 // {
